@@ -1,6 +1,6 @@
 #We-List -- A to-do List web app
 
-Main Features:
+*Main Features:*
 --------------
 
 - Keep things to do for you
