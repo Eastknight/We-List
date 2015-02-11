@@ -1,0 +1,7 @@
+<h1>Welcome to We-list! <%= current_user.name || current_user.email %></h1>
+
+<%= form_for @list do |f| %>
+  <%= f.label :title %>
+  <%= f.text_area :title, rows: 1, cols: 50, placeholder: "Create a name for your list..." %>
+  <%= f.submit %>
+<% end %>
