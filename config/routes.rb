@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  resources :lists, except: [:index, :destroy]
+  resources :lists, except: [:index] do
+    resources :items, only: [:create]
+  end
 
 end

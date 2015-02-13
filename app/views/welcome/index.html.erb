@@ -4,7 +4,11 @@
   <div class="container">
     <h1>Welcome to We-List!</h1>
     <p>This is a great app to help you enjoy a scheduled life!</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <% if current_user %>
+      <%= link_to "Go to my list", list_path(current_user.list.id), class: 'btn btn-primary'%>
+    <% else %>
+      <%= link_to "Get Started", new_user_session_path, class: 'btn btn-primary'%>
+    <% end %>
   </div>
 </div>
 

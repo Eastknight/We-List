@@ -3,6 +3,8 @@ class ListsController < ApplicationController
 
   def show
     @list = current_user.list
+    @item = Item.new
+    @items = @list.items
   end
 
   def new
