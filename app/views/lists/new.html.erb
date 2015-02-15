@@ -1,8 +1,6 @@
-<h1>Welcome to We-list! <%= current_user.name || current_user.email %></h1>
-<p>Please give your list a name.</p>
+<h3>Please give your list a name.</h1>
 
 <%= form_for @list do |f| %>
-  <%= f.label :title %>
-  <%= f.text_area :title, rows: 1, cols: 50, placeholder: "Name your list.." %>
-  <%= f.submit %>
+    <%= f.text_area :title, rows: 1, cols: 30, placeholder: "Name your list.." %>
+    <%= f.submit "Create", class: 'btn btn-success'%>
 <% end %>

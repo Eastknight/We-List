@@ -3,41 +3,41 @@
 <% else %>
 <h1><%=@list.title%></h1>
   <%= form_for [@list, @item] do |f| %>
-    <%= f.text_area :name, rows: 1, cols: 100,  placeholder: 'Type your to-do item here...' %>
-    <%= f.submit "Add Item" %>
+    <%= f.text_area :name, rows: 1, cols: 70,  placeholder: 'Type your next to-do here...' %>
+    <%= f.submit "Add" %>
   <% end %> 
 
 </div>
-<div class="panel panel-default">
-  <table class="table table-bordered table-striped" id="sortable">
-    <thead>
-      <tr>
-        <th>
-          Title
-        </th>
-        <th>
-          Days Left
-        </th>
-        <th>
-          Complete
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |item| %>
+  <div class="container">
+    <table class="table table-bordered table-striped" id="sortable">
+      <thead>
         <tr>
-          <td>
-            <%= item.name %>
-          </td>
-          <td>
-            <%= item.days_left %>
-          </td>
-          <td>
-            <%= link_to "", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok'%>
-          </td>
+          <th>
+            My To-dos
+          </th>
+          <th>
+            Days Left
+          </th>
+          <th>
+            Complete
+          </th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>
+              <%= item.days_left %>
+            </td>
+            <td>
+              <%= link_to "", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok'%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
