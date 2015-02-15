@@ -16,7 +16,10 @@
           Title
         </th>
         <th>
-          Staging Time
+          Days Left
+        </th>
+        <th>
+          Complete
         </th>
       </tr>
     </thead>
@@ -28,6 +31,9 @@
           </td>
           <td>
             7 days
+          </td>
+          <td>
+            <%= link_to "", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok'%>
           </td>
         </tr>
       <% end %>
