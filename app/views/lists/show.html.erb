@@ -1,7 +1,7 @@
 <% if @list.nil? %>
   <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
 <% else %>
-<h1><%=@list.title%></h1>
+<h1 id="<%= dom_id @list %>"><span class="rest-in-place" data-formtype="input" data-attribute="title"><%= @list.title %></span></h1>
   <%= form_for [@list, @item] do |f| %>
     <%= f.text_area :name, rows: 1, cols: 70,  placeholder: 'Type your next to-do here...' %>
     <%= f.submit "Add" %>

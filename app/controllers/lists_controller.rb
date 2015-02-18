@@ -1,10 +1,14 @@
 class ListsController < ApplicationController
   before_action :authenticate_user! # users must be signed in before any lists_controller method
-
+  
   def show
     @list = current_user.list
     @item = Item.new
     @items = @list.items
+    respond_to do |format|
+      format.html
+      format.json {render :json => @user}
+    end
   end
 
   def new
@@ -24,13 +28,19 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list = current_user.list
-    if @list.update_attributes(list_params)
-      flash[:notice] = "Post was updated."
-      redirect_to @list
+    @list = List.find(params[:id])
+    if @list.update_attributes!(list_params)
+      flash[:notice] = "List name was updated."
+      respond_to do |format|
+        format.html {redirect_to @list}
+        format.json {render :json => @list}
+      end
     else
       flash[:error] = "There was an error. Please try again."
-      render :show
+      respond_to do |format|
+        format.html {redirect_to @list}
+        format.json {render :nothing => true}
+      end
     end
   end
 

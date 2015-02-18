@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'better_errors', group: :development
+gem "binding_of_caller", group: :development
 gem 'rest_in_place'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
