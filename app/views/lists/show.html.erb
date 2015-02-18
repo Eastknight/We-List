@@ -3,8 +3,14 @@
 <% else %>
 <h1 id="<%= dom_id @list %>"><span class="rest-in-place" data-formtype="input" data-attribute="title"><%= @list.title %></span></h1>
   <%= form_for [@list, @item] do |f| %>
-    <%= f.text_area :name, rows: 1, cols: 70,  placeholder: 'Type your next to-do here...' %>
-    <%= f.submit "Add" %>
+    <div class="row">
+      <div class="col-md-5">
+        <%= f.text_area :name, rows: 1, cols: 63,  placeholder: 'Type your next to-do here...' %>
+      </div>
+      <div class="col-md-7">
+        <%= f.submit "Add", class: 'btn btn-success' %>
+      </div>
+    </div>
   <% end %> 
 
 </div>
