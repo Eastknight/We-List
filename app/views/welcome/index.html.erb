@@ -5,9 +5,9 @@
     <h1>Welcome to We-List!</h1>
     <p>This is a great app to help you enjoy a scheduled life!</p>
     <% if current_user %>
-      <%= link_to "Go to my list", list_path(current_user.list.id), class: 'btn btn-primary'%>
+      <%= link_to "Go to my list", list_path(current_user.list.id), class: 'btn btn-primary homepage-button'%>
     <% else %>
-      <%= link_to "Get Started", new_user_session_path, class: 'btn btn-primary'%>
+      <%= link_to "Get Started", new_user_session_path, class: 'btn btn-primary homepage-button'%>
     <% end %>
   </div>
 </div>
@@ -19,9 +19,9 @@
       <p>This app is a to-do list, which is really easy to use. Click here to get started!</p>
       <p>
         <% if current_user %>
-          <%= link_to "View details &raquo;", list_path(current_user.list.id), class: 'btn btn-default'%>
+          <%= link_to raw("View details &raquo;"), list_path(current_user.list.id), class: 'btn btn-default'%>
         <% else %>
-          <%= link_to "View details &raquo;", new_user_session_path, class: 'btn btn-default'%>
+          <%= link_to raw("View details &raquo;"), new_user_session_path, class: 'btn btn-default'%>
         <% end %>
       </p>
     </div>
@@ -30,9 +30,9 @@
       <p>This app can show you the time left after you create your to-dos.</p>
       <p>
         <% if current_user %>
-          <%= link_to "View details &raquo;", list_path(current_user.list.id), class: 'btn btn-default'%>
+          <%= link_to raw("View details &raquo;"), list_path(current_user.list.id), class: 'btn btn-default'%>
         <% else %>
-          <%= link_to "View details &raquo;", new_user_session_path, class: 'btn btn-default'%>
+          <%= link_to raw("View details &raquo;"), new_user_session_path, class: 'btn btn-default'%>
         <% end %>
       </p>
    </div>
@@ -41,9 +41,9 @@
       <p>This app can automatically delete your to-dos if they are remaining over 7 days.</p>
       <p>
         <% if current_user %>
-          <%= link_to "View details &raquo;", list_path(current_user.list.id), class: 'btn btn-default'%>
+          <%= link_to raw("View details &raquo;"), list_path(current_user.list.id), class: 'btn btn-default'%>
         <% else %>
-          <%= link_to "View details &raquo;", new_user_session_path, class: 'btn btn-default'%>
+          <%= link_to raw("View details &raquo;"), new_user_session_path, class: 'btn btn-default'%>
         <% end %>
       </p>
     </div>

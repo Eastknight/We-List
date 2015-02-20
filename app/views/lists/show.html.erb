@@ -2,7 +2,7 @@
   <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
 <% else %>
 <h1 id="<%= dom_id @list %>"><span class="rest-in-place" data-formtype="input" data-attribute="title"><%= @list.title %></span></h1>
-  <%= form_for [@list, @item] do |f| %>
+  <%= form_for [@list, @item], remote: true do |f| %>
     <div class="row">
       <div class="col-md-5">
         <%= f.text_area :name, rows: 1, cols: 63,  placeholder: 'Type your next to-do here...' %>
@@ -22,27 +22,15 @@
             My To-dos
           </th>
           <th>
-            Days Left
+            Created
           </th>
           <th>
             Complete
           </th>
         </tr>
       </thead>
-      <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td>
-              <%= item.name %>
-            </td>
-            <td>
-              <%= item.days_left %>
-            </td>
-            <td>
-              <%= link_to "", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok'%>
-            </td>
-          </tr>
-        <% end %>
+      <tbody class="js-items">
+        <%= render partial: "items/item", collection: @items %>
       </tbody>
     </table>
   </div>

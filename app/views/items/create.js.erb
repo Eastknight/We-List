@@ -1,0 +1,5 @@
+<% if @item.valid? %>
+  $('.js-items').append("<%= escape_javascript(render partial: 'items/item', locals: { item: @item }) %>");
+<% else %>
+  $('.js-items').prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
+<% end %>
