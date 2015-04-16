@@ -1,13 +1,17 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user! # users must be signed in before any lists_controller method
+  before_action :authenticate_user! 
+
+  def index
+    @lists = current_user.lists
+  end
   
   def show
-    @list = current_user.list
+    @list = List.find(params[:id])
     @item = Item.new
     @items = @list.items
     respond_to do |format|
       format.html
-      format.json {render :json => @user}
+      format.json {render :json => @list}
     end
   end
 
@@ -16,21 +20,20 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
-    @list.user = current_user
+    @list = current_user.lists.build(list_params)
     if @list.save
       flash[:notice] = "List was saved. Add your to-do items now."
-      redirect_to @list
+      redirect_to list_path(@list)
     else
       flash[:error] = "There was an error. Please try again."
-      render :new
+      redirect_to lists_path
     end
   end
 
   def update
     @list = List.find(params[:id])
     if @list.update_attributes!(list_params)
-      flash[:notice] = "List name was updated."
+      flash[:notice] = "List was updated."
       respond_to do |format|
         format.html {redirect_to @list}
         format.json {render :json => @list}
@@ -42,6 +45,18 @@ class ListsController < ApplicationController
         format.json {render :nothing => true}
       end
     end
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    if @list.destroy
+      flash[:notice] = "List name was deleted."
+      redirect_to lists_path
+    else
+      flash[:error] = "There was an error. Please try again."
+      render :show
+    end
+
   end
 
   private

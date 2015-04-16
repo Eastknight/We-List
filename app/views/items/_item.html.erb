@@ -3,7 +3,7 @@
     <%= item.name %>
   </td>
   <td>
-    <%= time_ago_in_words(item.created_at) %> ago
+    <%= item.create_time %> ago
   </td>
   <td>
     <%= link_to "", [@list, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok'%>

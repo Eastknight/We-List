@@ -1,0 +1,5 @@
+<% if current_user %>
+  <%= link_to raw("View details &raquo;"), lists_path, class: 'btn btn-default'%>
+<% else %>
+  <%= link_to raw("View details &raquo;"), new_user_session_path, class: 'btn btn-default'%>
+<% end %>

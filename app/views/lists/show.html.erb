@@ -1,18 +1,19 @@
 <% if @list.nil? %>
   <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
 <% else %>
-<h1 id="<%= dom_id @list %>"><span class="rest-in-place" data-formtype="input" data-attribute="title"><%= @list.title %></span></h1>
-  <%= form_for [@list, @item], remote: true do |f| %>
-    <div class="row">
-      <div class="col-md-5">
-        <%= f.text_area :name, rows: 1, cols: 63,  placeholder: 'Type your next to-do here...' %>
-      </div>
-      <div class="col-md-7">
+  <h1 id="<%= dom_id @list %>"><span class="rest-in-place" data-formtype="input" data-attribute="title"><%= @list.title %></span></h1>
+<div class="row">
+  <div class="col-md-10">
+  <%= form_for [@list, @item], remote: true, :html => {:class =>'form-inline'} do |f| %>
+        <%= f.text_area :name, rows: 1, cols: 63, class: 'form-control', placeholder: 'Type your next to-do here...' %>
         <%= f.submit "Add", class: 'btn btn-success' %>
-      </div>
-    </div>
   <% end %> 
-
+  </div>
+  <div class="col-md-2">
+    <%= link_to "Delete List", list_path, method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>
+<br>
 </div>
   <div class="container">
     <table class="table table-bordered table-striped" id="sortable">

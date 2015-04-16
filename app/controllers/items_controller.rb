@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
     if @item.save
-      flash[:notice] = "New item is added to your to-do list!"
+      # flash[:notice] = "New item is added to your to-do list!"
     else
       flash[:error] = "There was an error. Please try again."
     end

@@ -1,0 +1,18 @@
+<h1>Choose a List</h1>
+
+<br>
+
+<div class="row">
+<div class="col-md-6">
+  <p>
+    <%= form_for List.new, :html => {:class => 'form-inline'} do |f|%>
+      <%= f.label :title, class: 'sr-only' %>
+      <%= f.text_field :title, class: 'form-control', placeholder: "Enter a name" %>
+      <%= f.submit "Add List", class: 'btn btn-success' %>
+    <% end %>
+  </p>
+  <p>
+    <%= render partial: @lists %>
+  </p>
+</div>
+</div>

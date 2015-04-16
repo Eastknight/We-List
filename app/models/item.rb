@@ -1,7 +1,12 @@
 class Item < ActiveRecord::Base
+
+  include ActionView::Helpers::DateHelper
+
+  validates :name, presence: true, length: {minimum: 2}
+
   belongs_to :list
 
-  def days_left
-    (DateTime.now.beginning_of_day.to_date - created_at.beginning_of_day.to_date).to_i
+  def create_time
+    time_ago_in_words(created_at)
   end
 end
