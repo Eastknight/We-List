@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  resources :lists do
+  resources :lists, except: [:new] do
     resources :items, only: [:create, :destroy]
   end
 

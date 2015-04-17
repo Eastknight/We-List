@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'better_errors', group: :development
-gem "binding_of_caller", group: :development
-gem 'rest_in_place'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
@@ -53,7 +50,12 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'better_errors', group: :development
+gem "binding_of_caller", group: :development
+# gem 'rest_in_place'
+gem 'best_in_place'
 gem 'bootstrap-sass', '~>3.3.1'
 gem 'devise'
 gem 'figaro'
 gem 'active_model_serializers'
+gem 'pundit'

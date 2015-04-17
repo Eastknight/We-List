@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
+    authorize @list, :create?
     @item = @list.items.build(item_params)
     if @item.save
       # flash[:notice] = "New item is added to your to-do list!"
@@ -16,6 +17,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @list = List.find(params[:list_id])
+    authorize @list, :destroy?
     @item = @list.items.find(params[:id])
     if @item.destroy
       flash.now[:notice] = "Your to-do is complete!"
