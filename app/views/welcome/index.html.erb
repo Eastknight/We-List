@@ -7,7 +7,7 @@
     <% if current_user %>
       <%= link_to "Go to my list", lists_path, class: 'btn btn-primary homepage-button'%>
     <% else %>
-      <%= link_to "Get Started", new_user_session_path, class: 'btn btn-primary homepage-button'%>
+      <%= link_to "Get Started", new_user_registration_path, class: 'btn btn-primary homepage-button'%>
     <% end %>
   </div>
 </div>
